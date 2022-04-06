@@ -41,11 +41,12 @@ public class WeatherAdapter extends RecyclerView.Adapter<WeatherAdapter.WeatherV
 
     @Override
     public void onBindViewHolder(@NonNull WeatherAdapter.WeatherViewHolder holder, int position) {
-        Glide.with(context).load(weather.getWeather().get(position).getIcon()).into(holder.imageWeather);
+        Glide.with(context).load("http://openweathermap.org/img/wn/"+
+                weather.getWeather().get(position).getIcon()+".png").into(holder.imageWeather);
         holder.txtMain.setText(weather.getWeather().get(position).getMain());
         holder.txtDescription.setText(weather.getWeather().get(position).getDescription());
         holder.txtTemperature.setText(String.valueOf(weather.getMain().getTemp()));
-        holder.txtHumidity.setText(weather.getMain().getHumidity());
+        holder.txtHumidity.setText(String.valueOf(weather.getMain().getHumidity()));
 
 
 //        holder.imageWeather.setOnClickListener(new View.OnClickListener() {

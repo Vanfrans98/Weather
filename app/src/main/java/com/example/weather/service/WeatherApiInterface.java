@@ -8,6 +8,6 @@ import retrofit2.http.Query;
 
 public interface WeatherApiInterface {
 
-    @GET("/data/2.5")
-    Call<Weather> getEverythingWeatherBySearch(@Query("city") String city, @Query("apiKey")String apiKey);
+    @GET("weather")
+    Call<Weather> getEverythingWeatherBySearch(@Query("q") String q, @Query("appid")String apiKey);
 }
